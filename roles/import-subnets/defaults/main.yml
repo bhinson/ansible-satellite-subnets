@@ -6,3 +6,4 @@ satellite_username: admin
 satellite_password: adminpassword
 satellite_organization: Satellite_Organization
 satellite_location: Satellite_Location
+satellite_domain: example.com

@@ -5,7 +5,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url }}"
     validate_certs: no
-    search: "domain = home"
+    search: "domain = {{ satellite_domain }}"
   register: subnet_info
 
 - name: Show subnet info
