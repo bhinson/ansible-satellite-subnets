@@ -2,6 +2,6 @@
 
 - name: Import subnets from Satellite
   hosts: all
+  delegate_to: localhost
   roles:
     - role: import-subnets
-
