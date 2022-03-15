@@ -1,5 +1,6 @@
 ---
 - name: Query subnets
+  delegate_to: localhost
   redhat.satellite.subnet_info:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
