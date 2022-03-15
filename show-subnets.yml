@@ -1,0 +1,6 @@
+---
+
+- name: Show subnets in Satellite
+  hosts: all
+  roles:
+    - role: show-subnets

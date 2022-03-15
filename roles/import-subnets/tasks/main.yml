@@ -1,0 +1,40 @@
+---
+- name: Query subnets
+  redhat.satellite.subnet_info:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url }}"
+    validate_certs: no
+    search: "domain = home"
+  register: subnet_info
+
+- name: Show subnet info
+  debug:
+    verbosity: 1
+    var: subnet_info
+
+- name: Export subnets to new Satellite
+  redhat.satellite.subnet:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url }}"
+    validate_certs: no
+    state: present
+
+#    name: "{{ item.name }}"
+    name: "Imported subnet"
+    description: "{{ item.description }}"
+    organizations: "{{ satellite_organization }}"
+    locations: "{{ satellite_location }}"
+    mask: "{{ item.mask }}"
+    gateway: "{{ item.gateway }}"
+    from_ip: "{{ item.from }}"
+    to_ip: "{{ item.to }}"
+    boot_mode: "{{ item.boot_mode }}"
+    mtu: "{{ item.mtu }}"
+    cidr: "{{ item.cidr }}"
+    dns_primary: "{{ item.dns_primary }}"
+    network: "{{ item.network }}"
+    network_type: "{{ item.network_type }}"
+     
+  loop: "{{ subnet_info.subnets }}"

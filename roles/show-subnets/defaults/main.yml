@@ -1,0 +1,6 @@
+---
+# defaults file for show-subnets
+
+satellite_url: https://satellite.example.com
+satellite_username: admin
+satellite_password: adminpassword

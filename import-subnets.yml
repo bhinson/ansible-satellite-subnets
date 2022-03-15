@@ -1,0 +1,7 @@
+---
+
+- name: Import subnets from Satellite
+  hosts: all
+  roles:
+    - role: import-subnets
+

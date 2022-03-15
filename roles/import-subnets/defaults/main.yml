@@ -1,0 +1,8 @@
+---
+# defaults file for import-subnets
+
+satellite_url: https://satellite.example.com
+satellite_username: admin
+satellite_password: adminpassword
+satellite_organization: Satellite_Organization
+satellite_location: Satellite_Location
